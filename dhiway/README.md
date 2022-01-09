@@ -15,10 +15,10 @@ Dhiway also provides an application using CORD, called #MARK Studio, which offer
 
 ## Challenge 09
 
-Please refer the [Document](./Dhiway-Challenge09)
+Please refer the [Document](./Dhiway-Challenge09.md)
 
 
 ## Challenge 10
 
-Please refer the [Document](./Dhiway-Challenge10)
+Please refer the [Document](./Dhiway-Challenge10.md)
 
