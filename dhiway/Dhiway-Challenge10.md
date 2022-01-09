@@ -2,7 +2,7 @@
 
 ## **Solutions for Web 3.0**
 
-**Description**
+## **Description**
 
 The objective of this challenge is to create e-commerce solutions for the decentralized web (Web 3.0)
 
@@ -18,7 +18,7 @@ Perform a technology demonstration of a decentralized beckn protocol-enabled net
 
 Please note that this solution should be accompanied by detailed documentation containing the architecture and user guide.
 
-## Approach
+## **Approach**
 
 We have used the following components to address the mandatory and optional requirements of the challenge
 
@@ -56,7 +56,7 @@ A paper explaining the [CORD Network Operations](./CORD_Lightpaper_v1.pdf) is ad
 - A product Pallet to the CORD chain is added, which would handle the challenge requirements.
 - We are not using smart contracts as the built-in data structures are capable of handling the interaction requirements. We couldn’t implement the escrow transaction model between the buyer and seller due to the tight schedule to complete the product pallet. We will be enhancing the pallet with this feature soon. The current transaction will only charge the network fees in native crypto tokens.
 
-## Network Operations
+## **Network Operations**
 
 ### **Consensus**
 

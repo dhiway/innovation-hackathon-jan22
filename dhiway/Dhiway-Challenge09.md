@@ -1,11 +1,8 @@
-# Challenge9
+## **ONDC Hackathon - Challenge 10**
 
-Created: January 9, 2022 2:57 PM
-Last Edited Time: January 9, 2022 8:45 PM
+## **Distributed Ledger for Network**
 
-**Distributed Ledger for Network**
-
-**Description**
+## **Description**
 
 The objective of this challenge is to create and maintain a distributed ledger of open data in ONDC.
 
@@ -27,25 +24,25 @@ The requirements for this challenge are defined, under mandatory & optional cate
 
 We have used the following components to address the mandatory and optional requirements of the challenge
 
-1. CORD - Layer 1 Network Project 
+1. CORD - Layer 1 Network Project
 
-[GitHub - dhiway/cord at ondc-hackathon](https://github.com/dhiway/cord/tree/ondc-hackathon)
+   [GitHub - dhiway/cord at ondc-hackathon](https://github.com/dhiway/cord/tree/ondc-hackathon)
 
 1. CORD.js - Network SDK
 
-[GitHub - dhiway/cord.js at ondc-hackathon](https://github.com/dhiway/cord.js/tree/ondc-hackathon)
+   [GitHub - dhiway/cord.js at ondc-hackathon](https://github.com/dhiway/cord.js/tree/ondc-hackathon)
 
 1. SubQL - GraphQL interface to index, transform, and query CORD chain data.
 
-[GitHub - dhiway/cord-subql at ondc-hackathon](https://github.com/dhiway/cord-subql/tree/ondc-hackathon)
+   [GitHub - dhiway/cord-subql at ondc-hackathon](https://github.com/dhiway/cord-subql/tree/ondc-hackathon)
 
 CORD is a purpose-built decentralised infrastructure designed from the ground up to be a global public utility and enable a trust framework. It is designed to simplify the management of information, making it easier for owners to control; agencies and businesses to discover, access and use data to deliver networked public services. It provides a transparent history of information and protects it from unauthorised tampering from within or without the system.
 
-While sharing information securely among interested parties within an ecosystem has always been possible, CORD offers an enticing path toward more efficient operations, more responsive service, and enhanced data security among a group of participants that may not necessarily have a pre-existing trust relationship. 
+While sharing information securely among interested parties within an ecosystem has always been possible, CORD offers an enticing path toward more efficient operations, more responsive service, and enhanced data security among a group of participants that may not necessarily have a pre-existing trust relationship.
 
 The cryptographically secure, tamper-proof ledger along with Decentralised Identifiers (DID), Verifiable Credentials (VC) and content-addressed storage creates a higher level of assurance for the information streams. This model enables data availability, discovery, consent receipts, integration, security, and compliance to ensure the right information is delivered to the right resource at the right time — and ensure the information is being used for the right reason
 
-The use of the CORD network would reduce the risk of unauthorised access (through strong encryption) and data manipulation (through tamper-proof audit trails). CORD does not store personally identifiable information (PII) or the business data linked to the transaction on the chain. Developers and enterprises can use the CORD network to create applications that run on top of the network or can use the project to launch their own network. 
+The use of the CORD network would reduce the risk of unauthorised access (through strong encryption) and data manipulation (through tamper-proof audit trails). CORD does not store personally identifiable information (PII) or the business data linked to the transaction on the chain. Developers and enterprises can use the CORD network to create applications that run on top of the network or can use the project to launch their own network.
 
 It provides a stable, trustworthy network for institutions and developers to rely on an open-standards-driven value exchange protocol that is owned by everyone participating and not the monopoly of a single company. CORD creates new possibilities in addressing trust gaps, managing the authenticity of transactions, and exchanging value at scale.
 
@@ -56,13 +53,13 @@ It provides a stable, trustworthy network for institutions and developers to rel
 
 ## Solution Overview
 
-CORD runtime is composed of several smaller components called pallets. A pallet contains a set of types, storage items, and functions that define a set of features and functionality for a runtime. 
+CORD runtime is composed of several smaller components called pallets. A pallet contains a set of types, storage items, and functions that define a set of features and functionality for a runtime.
 
 We have created a new pallet to meet the challenge 9 and 10 requirements. This pallet is only intended to demonstrate the use-case driven extension capabilities of the runtime. For production environments, this pallet should be broken down into multiple pallets (e.g.: products, orders, ratings, sellers, approved applications/nodes etc)
 
-This solution does not block the transaction flow handed at the application layer. The network reads can be optimised by having a read/archive node along with the application infrastructure or the application can use an ready to use end-point by a service provider. 
+This solution does not block the transaction flow handed at the application layer. The network reads can be optimised by having a read/archive node along with the application infrastructure or the application can use an ready to use end-point by a service provider.
 
-The onchain data structure for the product pallet has 3 components. 
+The onchain data structure for the product pallet has 3 components.
 
 1. Tracking the Product, Order and Rating Details - these endpoints will be used to stream data into the network or query the state of the data exchanged by the network applications.
 2. Tracking the transaction Links - an order is linked to a store listing, a listing is linked to a product, a rating is linked to the order, which inturn is linked to the product etc
@@ -85,7 +82,7 @@ Product {
 }
 ```
 
-Below is an example of the product transaction data structure after processing multiple inputs received from different network participants. 
+Below is an example of the product transaction data structure after processing multiple inputs received from different network participants.
 
 ```jsx
 Product {
@@ -102,11 +99,11 @@ Product {
 }
 ```
 
-The linked transaction data structure extends the capability to construct transaction-level micro-chains, especially for reads and validations. 
+The linked transaction data structure extends the capability to construct transaction-level micro-chains, especially for reads and validations.
 
 The off-chain data also goes through a transformation to support the source data integrity. The cryptographic techniques are applied to ensure data ownership and integrity. The techniques uses also protect data from using it for replay attacks.
 
-Here is an example of the transformed data referenced by the chain transaction shown above. 
+Here is an example of the transformed data referenced by the chain transaction shown above.
 
 ```jsx
 ContentStream {
@@ -154,35 +151,35 @@ ContentStream {
 }
 ```
 
-The proofs[] structure is to create data structures with linked proofs. for eg: a product listing with a linked proof issued by the manufacture establishing the seller as an authorised reseller. 
+The proofs[] structure is to create data structures with linked proofs. for eg: a product listing with a linked proof issued by the manufacture establishing the seller as an authorised reseller.
 
 ## Demo Flow
 
 1. Register Identities
-    1. NetworkAuthor - with Tokens
-    2. Product Owner - with Tokens
-    3. SellerOne - No Tokens (transactions signed by SellerOne and submitted to the network through Network Author)
-    4. Sellertwo - No Tokens (transactions signed by SellerTwo and submitted to the network through Network Author)
-    5. BuyerOne - No Tokens (transactions signed by BuyerTwo and submitted to the network through Network Author)
-    6. BuyerTwo - No Tokens (transactions signed by BuyerTwo and submitted to the network through Network Author)
+   1. NetworkAuthor - with Tokens
+   2. Product Owner - with Tokens
+   3. SellerOne - No Tokens (transactions signed by SellerOne and submitted to the network through Network Author)
+   4. Sellertwo - No Tokens (transactions signed by SellerTwo and submitted to the network through Network Author)
+   5. BuyerOne - No Tokens (transactions signed by BuyerTwo and submitted to the network through Network Author)
+   6. BuyerTwo - No Tokens (transactions signed by BuyerTwo and submitted to the network through Network Author)
 2. Register Product
-    1. Product Schema - Schema anchored by Product Owner
-    2. Add Products - Products anchored by Product Owner
-    3. Delegate Schema to SellerOne - This makes SellerOne an authorised seller as he can now create a store listing linked to this product.
+   1. Product Schema - Schema anchored by Product Owner
+   2. Add Products - Products anchored by Product Owner
+   3. Delegate Schema to SellerOne - This makes SellerOne an authorised seller as he can now create a store listing linked to this product.
 3. Store Listings
-    1. SellerOne - List Products 
-    2. SellerOne transactions should suceed
-    3. SellerTwo - Trying to list products - Should Fail verification
+   1. SellerOne - List Products
+   2. SellerOne transactions should suceed
+   3. SellerTwo - Trying to list products - Should Fail verification
 4. Place Order
-    1. Buyer One - Places order.
+   1. Buyer One - Places order.
 5. Place Ratings
-    1. BuyerOne - Provide for the orders placed
-    2. BuyerOne - Provide an invalid rating - above 5 - Should fail verification
-    3. BuyerTwo - Provide ratings for an order - Should fail Verification as he never ordered the product.
+   1. BuyerOne - Provide for the orders placed
+   2. BuyerOne - Provide an invalid rating - above 5 - Should fail verification
+   3. BuyerTwo - Provide ratings for an order - Should fail Verification as he never ordered the product.
 
 ### Demo Setup
 
-Assumption: 
+Assumption:
 
 - Expection is your laptop has `[yarn` tool](https://yarnpkg.com/) installed
 - Have our [Web console to watch Events](https://apps.cord.network/) open
@@ -197,73 +194,72 @@ yarn demo;
 
 While the code is running, you can watch the events populating on the web console.
 
-## GraphQL
+### GraphQL
 
 [GraphQL Playground](https://query.cord.network/)
 
 1. List total products hosted by the network
-    
-    ```jsx
-    query {
-      products {
-        totalCount 
-      }
-    }
-    ```
-    
+
+   ```jsx
+   query {
+     products {
+       totalCount
+     }
+   }
+   ```
+
 2. List total storefronts
-    
-    ```jsx
-    query {
-      listings {
-        totalCount 
-      }
-    }
-    ```
-    
+
+   ```jsx
+   query {
+     listings {
+       totalCount
+     }
+   }
+   ```
+
 3. List Unique products quantity by store
-    
-    ```jsx
-    query {
-       stores { nodes { id, productsByListingStoreIdAndProductId {nodes {id}}}}
-    }
-    ```
-    
+
+   ```jsx
+   query {
+      stores { nodes { id, productsByListingStoreIdAndProductId {nodes {id}}}}
+   }
+   ```
+
 4. List total orders
-    
-    ```jsx
-    query {
-      orders {
-        totalCount 
-      }
-    }
-    ```
-    
+
+   ```jsx
+   query {
+     orders {
+       totalCount
+     }
+   }
+   ```
+
 5. Summary of orders by stores and products
-    
-    ```jsx
-    query {
-       stores(filter: {totalOrders: {greaterThan:0}}) { nodes { id, totalRating, totalOrders}}
-       products(filter: {totalOrders: {greaterThan:0}}) { nodes { id, rating, totalRating, totalOrders}}
-    }
-    ```
-    
+
+   ```jsx
+   query {
+      stores(filter: {totalOrders: {greaterThan:0}}) { nodes { id, totalRating, totalOrders}}
+      products(filter: {totalOrders: {greaterThan:0}}) { nodes { id, rating, totalRating, totalOrders}}
+   }
+   ```
+
 6. Store ratings
-    
-    ```jsx
-    query {
-       stores { nodes { id, totalRating, totalOrders}}
-    }
-    ```
-    
+
+   ```jsx
+   query {
+      stores { nodes { id, totalRating, totalOrders}}
+   }
+   ```
+
 7. Aggregated Network Level Product ratings
-    
-    ```jsx
-    query {
-       products { nodes { id, rating, totalRating, totalOrders}}
-    }
-    ```
-    
+
+   ```jsx
+   query {
+      products { nodes { id, rating, totalRating, totalOrders}}
+   }
+   ```
 
 ## Network Operations
 
@@ -275,7 +271,7 @@ CORD uses a Hybrid consensus mechanism that consists of Blind Assignment for Blo
 
 Networks using the Proof-of-Stake consensus protocol include Polkadot, Cardano, EOS, Tezos, and Cosmos, among many others. While similar in spirit, the approaches in these networks and CORD vary in terms of design choices such as the incentive structure, the number of validators elected, and the election rule used to select them.
 
-### Chain Nodes & Data Synchronisation
+### **Chain Nodes & Data Synchronisation**
 
 A blockchain's growth comes from a *genesis block*, *extrinsics*, and *events*.
 
@@ -295,10 +291,10 @@ The network is built to support population-scale public digital services. The hy
 
 The transactions received by the network are processed, validated, finalised and replicated to every participating network node in 6 seconds. The modular architecture allows optimisation at different levels of this flow, based on the use-case demands. We are quite confident to scale the network to support more than a million active network applications.
 
-## Limits
+## **Limits**
 
-The new pallet code is not [r](http://production-ready.It)eady for production. 
+The new pallet code is not [r](http://production-ready.It)eady for production.
 
-## What Next?
+## **What Next?**
 
 We plan to continue working on enhancing the pallet/s capabilities to support the ONDC ecosystem requirements. Happy to have contributors joining the project to add new features or enhance the functionalities.
