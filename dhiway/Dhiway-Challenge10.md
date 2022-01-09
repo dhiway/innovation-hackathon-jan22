@@ -48,7 +48,7 @@ The use of the CORD network would reduce the risk of unauthorised access (throug
 
 It provides a stable, trustworthy network for institutions and developers to rely on an open-standards-driven value exchange protocol that is owned by everyone participating and not the monopoly of a single company. CORD creates new possibilities in addressing trust gaps, managing the authenticity of transactions, and exchanging value at scale.
 
-A paper explaining the [CORD Network Operations](https://github.com/dhiway/innovation-hackathon-jan22/dhiway/CORD%20Lightpaper%20v1.pdf) is added to the repo.
+A paper explaining the [CORD Network Operations](./CORD_Lightpaper_v1.pdf) is added to the repo.
 
 ### **Assumptions**
 
