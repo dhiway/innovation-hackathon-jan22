@@ -261,6 +261,9 @@ While the code is running, you can watch the events populating on the web consol
    }
    ```
 
+** NOTE **: CORD does not store personally identifiable information (PII) or the business data linked to the transaction on the chain.
+
+
 ## Network Operations
 
 ### **Consensus**
@@ -293,7 +296,8 @@ The transactions received by the network are processed, validated, finalised and
 
 ## **Limits**
 
-The new pallet code is not [r](http://production-ready.It)eady for production.
+* The new pallet code is not ready for production.
+* We use websocket technology with express.js code, which is known to be scalable to millions of endpoints, but we haven't run the benchmark ourselves.
 
 ## **What Next?**
 
